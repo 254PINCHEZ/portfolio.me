@@ -1,0 +1,414 @@
+/* :root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+/* @import "tailwindcss";
+@plugin "daisyui"{
+  themes: light --default, cupcake,retro,aqua,cyberpunk;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Tailwind CSS Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Layer - Custom CSS Variables & Global Styles */
+@layer base {
+  /* CSS Custom Properties for Theme Colors */
+  :root {
+    /* Light Theme Colors */
+    --color-primary: #0a0a0a;
+    --color-primary-light: #1a1a1a;
+    --color-primary-dark: #000000;
+    
+    --color-text: #f8fafc;
+    --color-text-muted: #6b7280;
+    --color-text-dark: #0a0a0a;
+    
+    --color-accent: #f59e0b;
+    --color-accent-light: #fbbf24;
+    --color-accent-dark: #d97706;
+    
+    --color-accent-blue: #3b82f6;
+    --color-accent-blue-light: #60a5fa;
+    --color-accent-blue-dark: #2563eb;
+    
+    --color-border: #374151;
+    --color-border-light: #e5e7eb;
+    
+    --color-gray-900: #111827;
+    --color-gray-800: #1f2937;
+    --color-gray-700: #374151;
+    --color-gray-600: #4b5563;
+    --color-gray-500: #6b7280;
+    --color-gray-400: #9ca3af;
+    --color-gray-300: #d1d5db;
+    --color-gray-200: #e5e7eb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-50: #f9fafb;
+  }
+
+  /* Dark Theme (handled by DaisyUI) */
+  [data-theme="dark"] {
+    --color-primary: #0a0a0a;
+    --color-text: #f8fafc;
+    --color-text-muted: #9ca3af;
+  }
+
+  /* Global Styles */
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-primary text-text antialiased;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Smooth Theme Transitions */
+  * {
+    transition: background-color 0.3s ease, 
+                border-color 0.3s ease, 
+                color 0.3s ease;
+  }
+
+  /* Selection Color */
+  ::selection {
+    @apply bg-accent/30 text-accent;
+  }
+
+  /* Custom Focus Styles for Accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-accent outline-offset-2;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full hover:bg-gray-600;
+  }
+}
+
+/* Components Layer - Reusable Custom Components */
+@layer components {
+  /* Glass Morphism Effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-gray-800;
+  }
+
+  /* Card Component */
+  .card {
+    @apply bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 p-6 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Button Components */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-accent to-accent-blue text-white font-semibold rounded-lg 
+           hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-800 text-gray-100 font-semibold rounded-lg border border-gray-700 
+           hover:bg-gray-700 hover:border-gray-600 transition-colors duration-300 
+           focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-accent text-accent font-semibold rounded-lg 
+           hover:bg-accent hover:text-white transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+
+  /* Section Container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4;
+  }
+
+  /* Section Subtitle */
+  .section-subtitle {
+    @apply text-lg md:text-xl text-text-muted mb-8 max-w-3xl;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    @apply w-20 h-1 bg-gradient-to-r from-accent to-accent-blue rounded-full mx-auto mb-8;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg 
+           text-text placeholder-gray-600 focus:border-accent focus:ring-2 
+           focus:ring-accent/20 focus:outline-none transition-all duration-300;
+  }
+
+  /* Badge Component */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-primary {
+    @apply bg-accent/20 text-accent;
+  }
+
+  .badge-secondary {
+    @apply bg-accent-blue/20 text-accent-blue;
+  }
+
+  .badge-success {
+    @apply bg-green-500/20 text-green-400;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full h-2 bg-gray-800 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-accent to-accent-blue transition-all duration-1000 ease-out;
+  }
+}
+
+/* Utilities Layer - Custom Utility Classes */
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-blue bg-clip-text text-transparent;
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-accent to-accent-blue bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  /* Background Gradients */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-accent to-accent-blue;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500;
+  }
+
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950;
+  }
+
+  /* Glass Background with Pattern */
+  .bg-glass-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(245, 158, 11, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 158, 11, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Typography */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Layout Utilities */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+
+  /* Hide Scrollbar */
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Line Clamp Utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* DaisyUI Theme Overrides (if needed) */
+[data-theme="cupcake"] {
+  --color-accent: #65c3c8;
+  --color-accent-blue: #36d399;
+}
+
+[data-theme="retro"] {
+  --color-accent: #ef9fbc;
+  --color-accent-blue: #a991f7;
+}
+
+[data-theme="aqua"] {
+  --color-accent: #22d3ee;
+  --color-accent-blue: #06b6d4;
+}
+
+[data-theme="cyberpunk"] {
+  --color-accent: #ff7598;
+  --color-accent-blue: #75d1f0;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+}
