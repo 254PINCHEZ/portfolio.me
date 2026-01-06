@@ -10,7 +10,8 @@ import {
   FaArrowRight,
   FaCheckCircle,
   FaStar,
-  FaLayerGroup
+  FaLayerGroup,
+  FaEnvelope
 } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
@@ -93,7 +94,7 @@ const Hero: React.FC = () => {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-text-muted leading-relaxed mb-12 max-w-2xl">
-              Versatile  Information Technology graduate specializing in full-stack development, 
+              Versatile Information Technology graduate specializing in full-stack development, 
               AI/ML integration, and robust IT infrastructure. Creating modern, scalable solutions that 
               deliver exceptional user experiences.
             </p>
@@ -189,6 +190,16 @@ const Hero: React.FC = () => {
                 >
                   <FaLinkedin />
                 </a>
+                <a 
+                  href="mailto:your.email@example.com"
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl transition-all duration-300 ${
+                    hoverState.github 
+                      ? 'bg-gray-900 text-accent transform -translate-y-1 shadow-lg' 
+                      : 'bg-gray-900/50 text-text-muted border border-gray-800'
+                  }`}
+                >
+                  <FaEnvelope />
+                </a>
               </div>
             </div>
           </div>
@@ -204,10 +215,10 @@ const Hero: React.FC = () => {
                 {/* Image Frame */}
                 <div className="relative bg-gradient-to-br from-accent/30 to-accent-blue/30 rounded-2xl p-2">
                   <div className="relative overflow-hidden rounded-2xl">
-                    {/* Profile Image */}
+                    {/* Profile Image - Using direct path from public folder */}
                     <img 
-                      src="/src/assets/myphotofor portfolio.jpeg" 
-                      alt="Peter Githinji mungai - Full Stack Developer" 
+                      src="/myphotofor_portfolio.jpg" 
+                      alt="Peter Githinji Mungai - Full Stack Developer" 
                       className="w-full h-auto object-cover aspect-square rounded-2xl"
                     />
                     
@@ -256,7 +267,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Add animations to index.css */}
+      {/* CSS Animations */}
       <style>{`
         @keyframes float {
           0%, 100% {
@@ -281,6 +292,15 @@ const Hero: React.FC = () => {
         
         .animate-float {
           animation: float-3d 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
         }
         
         .animate-pulse-slow {
