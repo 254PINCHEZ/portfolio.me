@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
- "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "vite build"  
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
