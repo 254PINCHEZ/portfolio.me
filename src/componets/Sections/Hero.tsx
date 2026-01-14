@@ -215,7 +215,7 @@ const Hero: React.FC = () => {
                 {/* Image Frame */}
                 <div className="relative bg-gradient-to-br from-accent/30 to-accent-blue/30 rounded-2xl p-2">
                   <div className="relative overflow-hidden rounded-2xl">
-                    {/* Profile Image - Using direct path from public folder */}
+                    {/* Profile Image - FIXED PATH WITH LEADING SLASH */}
                     <img 
                       src="/myphotofor_portfolio.jpg" 
                       alt="Peter Githinji Mungai - Full Stack Developer" 
